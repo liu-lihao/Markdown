@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MarkDown在线编辑器</title>
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/hl.default.css">
+  <link rel="stylesheet" href="./css/md.default.css">
+</head>
+<body>
+  <div id="box">
+    <div class="box-text box-item">
+      <textarea v-model='msg_mark' @blur="handleBlur" ref="textarea"></textarea>
+      <div class="box-control">
+        <input class="box-btn box-text-save" @change="handleSave" placeholder="▼" v-model="fileName"></input>
+        <button class="box-text-btn box-btn" @click="handleTip">Tip</button>
+      </div>
+    </div>
+    <div class="box-item">
+      <div class="box-marked" v-html="mas_marked"></div>
+      <div class="box-tip" v-show="tip_flag" @click="handleTip">
+        <p>block</p>
+        <button 
+          class="box-tip-btn box-btn" 
+          v-for="(n,index) of tip_msg.block" 
+          @click="handleTipBtn('block',index,$event)"
+          :titile="n.title"
+        >{{n.name}}</button>
+        <p>inline</p>
+        <button 
+          class="box-tip-btn box-btn" 
+          v-for="(n,index) of tip_msg.inline" 
+          @click="handleTipBtn('inline',index,$event)"
+          :titile="n.title"
+        >{{n.name}}</button>
+        <p>作者：llh</p>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="./js/vue.js"></script>
+<script src="./js/highlight.js"></script>
+<script src="./js/marked.js"></script>
+<script src="./js/save.js"></script>
+<script src="./js/index.js"></script>
+</html>
