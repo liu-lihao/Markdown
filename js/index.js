@@ -179,8 +179,8 @@ marked.setOptions({
     },
     created(){
       this.ajax('GET',"./markdown-grammar.json").then(res=>{
-        this.tip_msg = res;
-          console.log(res);
+        this.tip_msg = JSON.parse(res);
+          console.log(JSON.parse(res));
       }).catch(res=>{
         this.tip_msg = {
           block:[
