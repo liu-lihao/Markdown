@@ -12,7 +12,7 @@
 <body>
   <div id="box">
     <div class="box-text box-item">
-      <textarea v-model='msg_mark' @blur="handleBlur" ref="textarea"></textarea>
+      <textarea v-model='msg_mark' @blur="handleBlur" ref="textarea" spellcheck="false"></textarea>
       <div class="box-control">
         <input class="box-btn box-text-save" @change="handleSave" placeholder="▼" v-model="fileName"></input>
         <button class="box-text-btn box-btn" @click="handleTip">Tip</button>
