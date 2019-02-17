@@ -180,6 +180,7 @@ marked.setOptions({
     created(){
       this.ajax('GET',"./markdown-grammar.json").then(res=>{
         this.tip_msg = res;
+          console.log(res);
       }).catch(res=>{
         this.tip_msg = {
           block:[
