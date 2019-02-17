@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +10,24 @@
   <link rel="stylesheet" href="./css/hl.default.css">
   <link rel="stylesheet" href="./css/md.default.css">
 </head>
+
 <body>
   <div id="box">
     <div class="box-text box-item">
-      <textarea v-model='msg_mark' @blur="handleBlur" ref="textarea" spellcheck="false"></textarea>
+      <textarea 
+        v-model='msg_mark' 
+        @blur="handleBlur" 
+        ref="textarea" 
+        spellcheck="false"
+      >
+      </textarea>
       <div class="box-control">
-        <input class="box-btn box-text-save" @change="handleSave" placeholder="▼" v-model="fileName"></input>
+        <input 
+          class="box-btn box-text-save" 
+          @change="handleSave" 
+          placeholder="▼" 
+          v-model="fileName"
+        />
         <button class="box-text-btn box-btn" @click="handleTip">Tip</button>
       </div>
     </div>
@@ -27,14 +40,18 @@
           v-for="(n,index) of tip_msg.block" 
           @click="handleTipBtn('block',index,$event)"
           :titile="n.title"
-        >{{n.name}}</button>
+        >
+          {{n.name}}
+        </button>
         <p>inline</p>
         <button 
           class="box-tip-btn box-btn" 
           v-for="(n,index) of tip_msg.inline" 
           @click="handleTipBtn('inline',index,$event)"
           :titile="n.title"
-        >{{n.name}}</button>
+        >
+          {{n.name}}
+        </button>
         <p>作者：llh</p>
       </div>
     </div>
@@ -45,4 +62,5 @@
 <script src="./js/marked.js"></script>
 <script src="./js/save.js"></script>
 <script src="./js/index.js"></script>
+
 </html>

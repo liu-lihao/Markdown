@@ -1,99 +1,130 @@
-.box-marked{
-    font-family:"Microsoft YaHei",微软雅黑;
+.box-marked {
+    font-family: "Microsoft YaHei", 微软雅黑;
     font-size: 16px;
 }
-.box-marked h1,.box-marked h2,.box-marked h3,.box-marked h4,.box-marked h5,.box-marked h6,.box-marked p{
-    margin:0;
-    padding:0;
+
+.box-marked h1,
+.box-marked h2,
+.box-marked h3,
+.box-marked h4,
+.box-marked h5,
+.box-marked h6,
+.box-marked p {
+    margin: 0;
+    padding: 0;
 }
-.box-marked h1{
+
+.box-marked h1 {
     font-size: 24px;
     padding: 5px;
 }
-.box-marked h2{
+
+.box-marked h2 {
     font-size: 22px;
     padding: 4px;
 }
-.box-marked h3{
+
+.box-marked h3 {
     font-size: 20px;
     padding: 3px;
 }
-.box-marked h4{
+
+.box-marked h4 {
     font-size: 18px;
     padding: 2px;
 }
-.box-marked h5{
+
+.box-marked h5 {
     font-size: 16px;
     padding: 1px;
 }
-.box-marked h6{
+
+.box-marked h6 {
     font-size: 14px;
 }
-.box-marked strong,.box-marked em,.box-marked del{
+
+.box-marked strong,
+.box-marked em,
+.box-marked del {
     padding: 0 3px;
 }
-.box-marked a{
-    color:rgb(93, 153, 241);
+
+.box-marked a {
+    color: rgb(93, 153, 241);
 }
-.box-marked blockquote{
+
+.box-marked blockquote {
     background-color: rgb(250, 250, 250);
-    padding:10px 10px 10px 20px;
-    margin:0;
+    padding: 10px 10px 10px 20px;
+    margin: 0;
     position: relative;
 }
-.box-marked blockquote p::before{
+
+.box-marked blockquote p::before {
     position: absolute;
-    top:0;
-    left:0;
-    width:10px;
-    height:100%;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 100%;
     background-color: rgb(221, 221, 221);
     content: "";
 }
+
 .box-marked hr {
     height: 3px;
     background-color: rgb(206, 206, 206);
     border: none;
 }
+
 .box-marked table {
     padding: 0;
-    border-collapse:collapse;
+    border-collapse: collapse;
     margin: 0;
-    border:2px solid rgb(208,208,208);
+    border: 2px solid rgb(208, 208, 208);
 }
+
 .box-marked table thead {
-    background-color: rgb(233,234,236);
-    padding:0;
-    margin:0;
-    border:none;
-    color:rgb(95,95,95);
+    background-color: rgb(233, 234, 236);
+    padding: 0;
+    margin: 0;
+    border: none;
+    color: rgb(95, 95, 95);
 }
-.box-marked table td,.box-marked table th{
+
+.box-marked table td,
+.box-marked table th {
     min-width: 80px;
     min-height: 50px;
     padding: 10px;
 }
+
 .box-marked tbody tr {
-    border-top:1px solid rgb(239,239,239);
-    background-color: rgb(254,254,254);
-    color:rgb(115,115,115);
+    border-top: 1px solid rgb(239, 239, 239);
+    background-color: rgb(254, 254, 254);
+    color: rgb(115, 115, 115);
 }
-.box-marked tbody tr:hover{
+
+.box-marked tbody tr:hover {
     background-color: rgb(244, 250, 252);
 }
-.box-marked tbody tr:nth-child(even){
-    background-color: rgb(245,245,245);
+
+.box-marked tbody tr:nth-child(even) {
+    background-color: rgb(245, 245, 245);
 }
-.box-marked tbody tr:nth-child(even):hover{
+
+.box-marked tbody tr:nth-child(even):hover {
     background-color: rgb(231, 238, 240);
 }
+
 .box-marked tbody td {
-    border-right:1px solid rgb(239,239,239);
+    border-right: 1px solid rgb(239, 239, 239);
 }
+
 .box-marked tbody td:last-child {
-    border-right:none;
+    border-right: none;
 }
+
 .box-marked img {
-    max-width:500px;
-    max-height:500px;
+    max-width: 500px;
+    max-height: 500px;
 }
