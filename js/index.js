@@ -152,7 +152,7 @@ marked.setOptions({
         return str.slice(0, index) + newValue + str.slice(index + Math.abs(howMany));
       },
       handleSave(){
-        const fname = this.fileName;
+        let fname = this.fileName;
         if(fname){
           const blob = new Blob([this.msg_mark], {type: "text/plain;charset=utf-8"});
           fname = fname.replace(/\.md$/,"");
