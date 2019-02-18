@@ -1,3 +1,6 @@
+window.onbeforeunload = function() { 
+  return "页面卸载时询问。";
+}
 marked.setOptions({
   highlight: function (code) {
     return hljs.highlightAuto(code).value;
@@ -13,7 +16,8 @@ var box = new Vue({
     fileName: '',
     tip_flag: false,
     msg_mark: `# 你好！——llh`,
-    tip_msg: {}
+    tip_msg: {},
+    tip_title:'终极彩蛋：\n你好，我是llh，欢迎使用这个小工具.\n除了表明上的功能，隐藏功能我介绍一下：\n1、在输入框Ctrl+S复制到剪切板\n2、Tab按键查看tip(应该以及发现了~嘿嘿)。'
   },
   computed: {
     mas_marked() {
@@ -21,6 +25,26 @@ var box = new Vue({
     },
   },
   methods: {
+    inputTab(e){
+      e.preventDefault();
+      // 屏蔽Tab按键
+      this.tip_flag = !this.tip_flag;
+    },
+    copyToClipboard(e){
+      if(e.ctrlKey && e.key=="s"){
+        e.preventDefault();
+        //屏蔽浏览器Ctrl+S的保存
+        const temp = {
+          end: e.target.selectionEnd,
+          start: e.target.selectionStart
+        }
+        this.setCursorPosition(0,this.msg_mark.length);
+        setTimeout(()=>{
+          document.execCommand('Copy','false',null);
+          this.setCursorPosition(temp.start,temp.end);
+        },0);
+      }
+    },
     handleTip() {
       this.tip_flag = !this.tip_flag;
     },
@@ -39,15 +63,13 @@ var box = new Vue({
       const end = blurEnd + range.end - 1;
       this.msg_mark = this.stringSplice(this.msg_mark, blurEnd, 0, content);
       this.$refs['textarea'].focus();
-      setTimeout(() => {
-        this.$refs['textarea'].setSelectionRange(start, end);
-      }, 0);
+      this.setCursorPosition(start,end);
     },
     stringSplice(str, index, howMany, newValue) {
       return str.slice(0, index) + newValue + str.slice(index + Math.abs(howMany));
     },
     handleSave() {
-      let fname = this.fileName;
+      let fname = this.fileName.replace(/^\s*$/,"");
       if (fname) {
         const blob = new Blob([this.msg_mark], {
           type: "text/plain;charset=utf-8"
@@ -56,6 +78,11 @@ var box = new Vue({
         saveAs(blob, fname + ".md");
         this.fileName = '';
       }
+    },
+    setCursorPosition(start,end){
+      setTimeout(()=>{
+        this.$refs['textarea'].setSelectionRange(start, end);
+      },0);
     },
     ajax(method, url, data) {
       const request = new XMLHttpRequest();
@@ -82,12 +109,12 @@ var box = new Vue({
         block: [{
           name: '数据加载异常',
           example: '请联系liulihao97@gmail.com修复。',
-          title: ''
+          title: '数据加载异常'
         }],
         inline: [{
           name: '数据加载异常',
           example: '请联系liulihao97@gmail.com修复。',
-          title: ''
+          title: '数据加载异常'
         }]
       }
     });

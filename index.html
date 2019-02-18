@@ -19,6 +19,8 @@
         @blur="handleBlur" 
         ref="textarea" 
         spellcheck="false"
+        @keydown.tab="inputTab"
+        @keydown="copyToClipboard"
       >
       </textarea>
       <div class="box-control">
@@ -28,7 +30,9 @@
           placeholder="▼" 
           v-model="fileName"
         />
-        <button class="box-text-btn box-btn" @click="handleTip">Tip</button>
+        <button class="box-text-btn box-btn" @click="handleTip">
+          <a :title="tip_title">Tip</a>
+        </button>
       </div>
     </div>
     <div class="box-item">
@@ -39,18 +43,17 @@
           class="box-tip-btn box-btn" 
           v-for="(n,index) of tip_msg.block" 
           @click="handleTipBtn('block',index,$event)"
-          :titile="n.title"
+          
         >
-          {{n.name}}
+          <a :title="n.title">{{n.name}}</a>
         </button>
         <p>inline</p>
         <button 
           class="box-tip-btn box-btn" 
           v-for="(n,index) of tip_msg.inline" 
           @click="handleTipBtn('inline',index,$event)"
-          :titile="n.title"
         >
-          {{n.name}}
+          <a :title="n.title">{{n.name}}</a>
         </button>
         <p>作者：llh</p>
       </div>

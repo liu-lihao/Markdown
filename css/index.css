@@ -64,14 +64,26 @@ body {
   bottom: -20%;
   right: 3%;
   transition: all .5s;
+  display: flex;
+  justify-content: space-between;
+  width:250px;
 }
 
 .box-text-btn {
-
   width: 120px;
   height: 40px;
 }
-
+.box-text-btn a,.box-tip-btn a{
+  display:inline-block;
+  width:100%;
+  height:100%;
+}
+.box-text-btn a{
+  line-height: 35px;
+}
+.box-tip-btn a{
+  line-height: 25px;
+}
 .box-text-save {
   padding: 0;
   margin: 0;
